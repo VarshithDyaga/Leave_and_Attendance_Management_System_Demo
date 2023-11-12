@@ -1,0 +1,146 @@
+
+
+<div class="container">
+
+    <h1 class="heading">Employee list</h1>
+    <div>
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="SearchText">
+       
+    </div>
+    <div class="addnew">
+        <button class="button" routerLink="/addNewProject">Add new Project</button>
+    </div>
+    
+    <table class=" table " style="border: 1px;">
+        <thead>
+            <tr>
+
+
+                <th>Employee ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Project Code</th>
+                <th>Designation</th>
+                <th>Operation</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of employeeregistration | search:SearchText">
+                <td>
+                   
+                    {{e.employeeId}}
+                </td>
+                <td>
+                    <div *ngIf="e.isEdit">
+                        <input type="text" [(ngModel)]="e.firstName" class="form-control" #userInput="ngModel">
+                        <div class=" text-danger" *ngIf="validateField(e.firstName) && userInput.touched">
+                            <span>Required</span>
+                        </div>
+                    </div>
+                    <div *ngIf="!e.isEdit">
+                   {{e.firstName}}
+                   </div>
+                </td>
+                <td>
+                    <div *ngIf="e.isEdit">
+                        <input type="text" [(ngModel)]="e.lastName" class="form-control" #userInput="ngModel">
+                        <div class=" text-danger" *ngIf="validateField(e.lastName) && userInput.touched">
+                            <span>Required</span>
+                        </div>
+
+                    </div>
+                    <div *ngIf="!e.isEdit">
+                    {{e.lastName}}
+                    </div>
+                </td>
+
+                <td>
+                    <div *ngIf="e.isEdit">
+                        <input type="text" [(ngModel)]="e.userName" class="form-control" #userInput="ngModel">
+                        <div class=" text-danger" *ngIf="ValidateUserName(e.userName) !=='' && userInput.touched">
+                            <span>{{ValidateUserName(e.userName)}}</span>
+                        </div>
+
+                    </div>
+                    <div *ngIf="!e.isEdit">
+                    
+                    {{e.userName}}
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="e.isEdit">
+                        <input type="text" [(ngModel)]="e.password" class="form-control" #userInput="ngModel">
+                        <div class=" text-danger" *ngIf="validatePassword(e.password) !=='' && userInput.touched" >
+                            <span>{{validatePassword(e.password)}}</span>
+                        </div>
+                    </div>
+                    <div *ngIf="!e.isEdit">
+                    {{e.password}}
+                    </div>
+                         </td>   
+                <td>
+                    <div *ngIf="e.isEdit">
+                        <input type="text" [(ngModel)]="e.email" class="form-control" #userInput="ngModel">
+                        <div class=" text-danger" *ngIf="validateEmail(e.email)!=='' && userInput.touched">
+                            <span>{{validateEmail(e.email)}}</span>
+                        </div>
+                    </div>
+                    <div *ngIf="!e.isEdit">
+                    {{e.email}}
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="e.isEdit">
+                        <input type="text" [(ngModel)]="e.projectCode" class="form-control" #userInput="ngModel">
+                        <div class=" text-danger" *ngIf="validateField(e.projectCode) && userInput.touched">
+                            <span>Required</span>
+                        </div>
+                    </div>
+                    <div *ngIf="!e.isEdit">
+                    {{e.projectCode}}
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="e.isEdit">
+                        <!-- <input type="text" [(ngModel)]="e.designation" class="form-control"> -->
+                        
+                  <div >  
+                    <select name="designation" id="designation" placeholder="designation"  [(ngModel)]="e.designation" #userInput="ngModel">
+                        <option value="" disabled selected hidden> Select Designation</option>
+                        <option value="employee">Employee</option>
+                        <option value="manager">Manager</option>
+                    </select><br><br>
+                </div>
+                        <div class=" text-danger" *ngIf="validateField(e.designation) && userInput.touched">
+                            <span>Required</span>
+                        </div>
+                    </div>
+                    <div *ngIf="!e.isEdit">
+                   {{e.designation}}
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div *ngIf="!e.isEdit">
+                      <span class="icon-container">
+                        <i class="fa fa-pencil text-primary" aria-hidden="true" (click)="onEdit(e)" ></i>
+                      </span>
+                      <span class="icon-container">
+                        <i class="fa fa-trash text-danger" aria-hidden="true" (click) = "clickMethod1(e.employeeId)"></i>
+                      </span>
+                    </div>
+                    <div *ngIf="e.isEdit">
+                    <td> <button class="btn btn-success btn-sm" (click)="onUpdate(e)"  [disabled]="canUpdate(e)">Update</button> </td>
+                     <td>  <button class="btn btn-danger btn-sm"(click)="onCancel(e)">Cancel</button></td>
+                      </div>
+                  </td>
+                  
+                                
+            </tr>
+        </tbody>
+    </table>
+</div>
+

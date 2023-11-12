@@ -1,0 +1,38 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> -->
+ <form #form="ngForm">
+        <div class="Parent">
+            <div class ="Selector">
+                <div>
+                    <h3 class="Heading">Login</h3><br>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input type="email" id="typeEmailX-2" class="form-control form-control-lg"  placeholder="Username" name="username" [(ngModel)]="admin.userName" #usernameInput="ngModel">
+                    <div *ngIf="UsernameRequired()&& usernameInput.touched " class="text-danger">
+                        Username Required
+                      </div>
+                  </div>
+      
+                  <div class="form-outline mb-4">
+                    <input type="password" id="typePasswordX-2" class="form-control form-control-lg" placeholder="Password"  name="passsword"[(ngModel)]="admin.password" #passwordInput="ngModel">
+                    <div *ngIf="PasswordRequired() && passwordInput.touched" class="text-danger">
+                        Password Required
+                      </div>
+                  </div>
+
+                <div>
+                    <button class="loginbtn" (click)="Validate()">Login</button>
+                    
+                </div>
+            </div>
+        </div>
+    </form>
+<!-- </body>
+</html> -->

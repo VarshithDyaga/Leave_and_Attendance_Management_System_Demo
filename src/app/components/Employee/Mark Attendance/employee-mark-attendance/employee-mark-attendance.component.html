@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container my-5">
+        <h1>Attendance Tracker</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Project Code</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input class="input" type="date" [value]="today | date: 'yyyy-MM-dd'" readonly>
+                    </td>
+                    <td>
+                        <input class="input" type="text" placeholder="">
+                    </td>
+                    <td>
+                        <button class="button" >Mark Attendance</button>
+                    </td>
+                </tr>
+ 
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

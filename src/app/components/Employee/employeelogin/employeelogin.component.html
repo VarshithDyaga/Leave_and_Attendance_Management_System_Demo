@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <form  #form="ngForm">
+        <div class="Parent">
+            <div class ="Selector">
+                <div>
+                    <h3 class="Heading">Login</h3><br>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input type="email" id="typeEmailX-2" class="form-control form-control-lg"  placeholder="Username" name="username" [(ngModel)]="employee.userName" #userInput="ngModel">
+                    <div *ngIf="UsernameRequired() && userInput.touched" class="text-danger">
+                        Username Required
+                      </div>
+                  </div>
+      
+                  <div class="form-outline mb-4">
+                    <input type="password" id="typePasswordX-2" class="form-control form-control-lg" placeholder="Password" name="passsword" [(ngModel)]="employee.password" #userInputpasword="ngModel" >
+                    <div *ngIf="PasswordRequired() && userInputpasword.touched" class="text-danger">
+                        Password Required
+                      </div>
+                  </div>
+
+                  <!-- <div class="form-outline mb-4">
+                    <input type="text"  class="form-control form-control-lg" placeholder="designation" name="designation" [(ngModel)]="employee.designation"  />
+            
+                  </div> -->
+                
+                  <div >   
+                    <select name="designation" id="designation" placeholder="designation"  [(ngModel)]="employee.designation" #userInputdesignation="ngModel">
+                        <option value="" disabled selected hidden> Select Designation</option>
+                        <option value="employee">Employee</option>
+                        <option value="manager">Manager</option>
+                    </select><br><br>
+                    <div *ngIf="DesignationRequired() && userInputdesignation.touched" class="text-danger">
+                        Designation Required
+                      </div>
+                </div>
+                    
+                <div>
+                    <button class="loginbtn"  (click)="Validate()" >Login</button>
+                    
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

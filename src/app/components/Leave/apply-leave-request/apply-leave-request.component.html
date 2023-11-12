@@ -1,0 +1,35 @@
+
+<form #form = "ngForm" >
+<body>
+    <div class="background">
+       
+        <div class="formbg">
+            <div class="form">          
+                <div class="menu">
+                    <form action="">
+                        <h3 class="heading">Request a leave</h3><br>
+                        <input class="input" type="text" placeholder="Employee Name" name="employeename" [(ngModel)]="applyleaves.employeeName"><br>
+                        <input class="input" type="text" placeholder="Employee ID" name="employeeid" [(ngModel)]="applyleaves.employeeId" #userInput="ngModel"><br>
+                        <div *ngIf="ValidateID() && userInput.touched" class="text-danger">
+                            required!
+                          </div>
+                       
+                        <input class="input" type="text" placeholder="Project code" name="projectcode" [(ngModel)]="applyleaves.projectCode"><br>
+                        <input class="input" type="text" placeholder="Leave Reason" name="leavedescription" [(ngModel)]="applyleaves.leaveDescription"><br>
+                        
+                        <!-- <input class="input" type="text" placeholder="Leave start date" name="leavestartdate" [(ngModel)]="applyleaves.startDate"><br>
+                        <input class="input" type="text" placeholder="Leave end date" name="leaveenddate" [(ngModel)]="applyleaves.endDate"><br> -->
+
+                        <input class="input" type="text" placeholder="Start Date" onfocus="(this.type='date')" onblur="(this.type='text')" name ="leavestartdate" [(ngModel)]="applyleaves.startDate" ><br>
+                        <input class="input" type="text" placeholder="End Date" onfocus="(this.type='date')" onblur="(this.type='text')"  name="leaveenddate" [(ngModel)]="applyleaves.endDate"><br>
+   
+                        <button class="button" type="submit" (click) = "Validate()">Request Leave</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</form>
+
+ 

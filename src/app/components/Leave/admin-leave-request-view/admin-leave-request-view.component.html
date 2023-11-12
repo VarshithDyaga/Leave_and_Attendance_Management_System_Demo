@@ -1,0 +1,53 @@
+
+
+
+<form #form = "ngForm">
+    <body>
+        <div class="container my-5">
+            <h1>Employee Leave Requests</h1><br>
+    
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Leave ID</th>
+                        <th>Employee Name</th>
+                        <th>Employee ID</th>
+                        <th>Leave Status</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                </tbody>
+        
+                <tbody>
+                    
+                    
+                    <tr *ngFor="let e of leaverequest" >
+    
+                    
+                        <td>
+                            {{e.leaveId}}
+                        </td>
+                        <td >
+                            {{e.employeeName}}
+                        </td>
+                        <td>
+                            {{e.employeeId}}
+                        </td>
+
+                        <td >
+                            {{e.leaveStatus}}
+                        </td>
+                   
+                         
+                    
+    
+                </tbody>
+            </table>
+        </div>
+    </body>
+    
+    </form>
+    
+    

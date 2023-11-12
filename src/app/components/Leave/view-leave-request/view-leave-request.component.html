@@ -1,0 +1,38 @@
+<form #form="ngForm">
+    <body>
+      <div class="container my-5">
+        <h1>Leave Requests</h1>
+  
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Leave ID</th>
+              <th>Employee Name</th>
+              <th>Employee ID</th>
+              <th>Leave Reason</th>
+              <th>Leave Start Date</th>
+              <th>Leave End Date</th>
+              <th>Leave Status</th>
+              <th>Operation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let e of leaverequest">
+              <td>{{e.leaveId}}</td>
+              <td>{{e.employeeName}}</td>
+              <td>{{e.employeeId}}</td>
+              <td>{{e.leaveDescription}}</td>
+              <td>{{e.startDate}}</td>
+              <td>{{e.endDate}}</td>
+              <td>{{e.leaveStatus}}</td>
+              <td>
+                <button class="approve" (click)="ApproveRequest(e, e.leaveId)">Approve</button>
+                <button class="reject" (click)="RejectRequest(e, e.leaveId)">Reject</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </body>
+  </form>
+  

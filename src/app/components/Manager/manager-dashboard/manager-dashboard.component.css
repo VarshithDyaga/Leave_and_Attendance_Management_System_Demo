@@ -1,0 +1,55 @@
+.background{
+    background: url(src\assets\images\AdminDashBG.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+ 
+}
+ 
+.menu{
+    margin-left: 10%;
+ 
+}
+.window{
+    align-items: center;
+    justify-content: left;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+   
+    background: linear-gradient(135deg, rgba(255,255,255,0.1),rgba(255,255,255,0)) ;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+ 
+}
+ 
+.heading{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: aliceblue;
+}
+.button{
+    background-color: rgb(108, 182, 255);
+    font-size: large;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.30);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.2);
+}
+ 
+.input{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: medium;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.40);
+    width: auto;
+    border: 1px;
+}
+ 
+.radio{
+    padding: 10%;
+}

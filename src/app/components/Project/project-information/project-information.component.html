@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container my-5">
+        <h1>Project Details</h1>
+        <div class="addnew">
+            <button class="button" routerLink="/addNewProject">Add new Project</button>
+        </div>
+        <table class="table table-striped" border="1">
+            <thead>
+                <tr>
+                    <th>Project Code</th>
+                    <th>Project Name</th>
+                    <th>Project Technology</th>
+                    <th>Project Description</th>
+                    <th>Project Status</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+            </tbody>
+    
+            <tbody>
+                <tr *ngFor="let e of project">
+                    <td>
+                    {{e.projectCode}}
+                    </td>
+                    <td>  <div *ngIf="e.isEdit">
+                        <input type="text" [(ngModel)]="e.projectName" class="form-control" #userInputcode="ngModel">
+                        <div class=" text-danger" *ngIf="validateField(e.projectName) && userInputcode.touched">
+                            <span>Required</span>
+                        </div>
+                    </div>
+                        <div *ngIf="!e.isEdit">
+                        
+                        {{e.projectName}}
+                        </div>
+                   
+                    </td>
+                    <td>
+                        <div *ngIf="e.isEdit">
+                            <input type="text" [(ngModel)]="e.projectTechnology" class="form-control" #userInputtech="ngModel">
+                            <div class=" text-danger" *ngIf="validateField(e.projectTechnology) && userInputtech.touched">
+                                <span>Required</span>
+                            </div>
+                        </div>
+                        <div *ngIf="!e.isEdit">
+                        {{e.projectTechnology}}
+                    </div>
+                        </td>
+                        <td>
+                            <div *ngIf="e.isEdit">
+                                <input type="text" [(ngModel)]="e.projectDescription" class="form-control" #userInputdes="ngModel">
+                                <div class=" text-danger" *ngIf="validateField(e.projectDescription) && userInputdes.touched">
+                                    <span>Required</span>
+                                </div>
+                            </div>
+                            <div *ngIf="!e.isEdit">
+                            {{e.projectDescription}}
+                        </div>
+                            </td>
+                   
+                            <td>
+                                <div *ngIf="e.isEdit">
+                                    <input type="text" [(ngModel)]="e.projectStatus" class="form-control" #userInputstatus="ngModel">
+                                    <div class=" text-danger" *ngIf="validateField(e.projectStatus) && userInputstatus.touched">
+                                        <span>Required</span>
+                                    </div>
+                                </div>
+                                <div *ngIf="!e.isEdit">
+                                {{e.projectStatus}}
+                            </div>
+                                </td>
+                       
+                    <td class="text-center">
+                        <div *ngIf="!e.isEdit">
+                          <span class="icon-container">
+                            <i class="fa fa-pencil text-primary" aria-hidden="true" (click)="onEdit(e)"></i>
+                          </span>
+                          <span class="icon-container">
+                            <i class="fa fa-trash text-danger" aria-hidden="true" (click)="clickMethod1(e.projectCode)"></i>
+                          </span>
+                        </div>
+                        <div *ngIf="e.isEdit">
+                        <td> <button class="btn btn-success btn-sm"(click)="onUpdate(e)"  [disabled]="ValidateForm(e)==false">Update</button> </td>
+                         <td>  <button class="btn btn-danger btn-sm" (click)="onCancel(e)">Cancel</button></td>
+                          </div>
+                      </td>
+                   
+                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

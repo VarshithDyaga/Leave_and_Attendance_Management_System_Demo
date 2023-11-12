@@ -1,0 +1,36 @@
+
+<form #form = "ngForm">
+<body>
+    <div class="background">
+       
+        <div class="formbg">
+            <div  class="form">          
+                <div class="menu">
+                    <form action="">
+                        <h3 class="heading">Add New Project</h3><br>
+                    
+                        <input class="form-control" type="text" placeholder="Project Name" name="projectname" [(ngModel)]="project.projectName " #userInputprojectname="ngModel">
+                        <div *ngIf="ValidateProjectName()&& userInputprojectname.touched" class="text-danger">
+                            Project Name is required!
+                          </div> <br>
+                        <input class="input" type="text" placeholder="Project Technology" name="projecttechnology" [(ngModel)]="project.projectTechnology" #userInputprojectTech="ngModel"><br>
+                        <div *ngIf="ValidateProjectTechnology()&& userInputprojectTech.touched" class="text-danger">
+                            Project Technology is required!
+                          </div> <br>
+                        <input class="input" type="text" placeholder="Project Description" name="projectdescription" [(ngModel)]="project.projectDescription" #userInputprojectDes="ngModel">
+                        <div *ngIf="ValidateProjectDescription()&& userInputprojectDes.touched" class="text-danger">
+                            Project Description should be more than 10 characters!
+                          </div> <br>
+                        <input class="input" type="text" placeholder="Project Status" name="projectstatus" [(ngModel)]="project.projectStatus" #userInputprojectstatus="ngModel">
+                        <div *ngIf="ValidateProjectTechnology()&& userInputprojectstatus.touched" class="text-danger">
+                            Project Status is required!
+                          </div> <br>
+                        <button class="loginbtn" type="submit" (click)="Validate()" >Add Project</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</form>
+

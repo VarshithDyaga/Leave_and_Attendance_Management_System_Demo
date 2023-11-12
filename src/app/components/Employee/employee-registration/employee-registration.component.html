@@ -1,0 +1,69 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> -->
+
+<form #form = "ngForm">
+
+    <div class="background">
+       
+        <div class="formbg">
+            <div class="form">          
+                <div class="menu">
+                    <form action="">
+                        <h3 class="heading">Add new employee</h3><br>
+                        <input class="form-control" required ngModel class="input" type="text" placeholder="First Name"  name="firstname" [(ngModel)]="employeeregistration.firstName" #userInputfirstName="ngModel"><br>
+                        <div *ngIf="isFirstNameInvalid() && userInputfirstName.touched" class="text-danger">
+                            First Name is required!
+                          </div>
+                       
+                        <input class="input" type="text" placeholder="Last Name" name="lastname" [(ngModel)]="employeeregistration.lastName " #userInputlastname="ngModel"><br>
+                        <div *ngIf="isLastNameInvalid() && userInputlastname.touched" class="text-danger">
+                            Last Name is required!
+                          </div>
+                        <input class="input" type="text" placeholder="Project ID"  name="projectCode" [(ngModel)]="employeeregistration.projectCode" #userInputproject="ngModel"><br>
+                        <div *ngIf="isProjectCodeInvalid() && userInputproject.touched" class="text-danger">
+                            Project Code is required!
+                          </div>
+                        <input class="input" type="text" placeholder="E-mail" name="email" [(ngModel)]="employeeregistration.email" #userInputemail="ngModel"><br>
+                        <div *ngIf="isEmailInvalid() && userInputemail.touched" class="text-danger">
+                            Invalid email address!
+                          </div>
+              
+                        <input class="input" type="text" placeholder="Username" name="username" [(ngModel)]="employeeregistration.userName" #userInputusername="ngModel"><br>
+                        <div *ngIf="isUsernameInvalid()&& userInputusername.touched" class="text-danger">
+                            Invalid username !
+                          </div>
+                        <input class="input" type="password" placeholder="Password" name="Password" [(ngModel)]="employeeregistration.password" #userInputpassword="ngModel"><br>
+                        <div *ngIf="isPasswordInvalid() && userInputpassword.touched" class="text-danger">
+                          <p>Password must include <br>
+                            combination of special char<br>
+                            & numbers & Upper&lowerCase<br></p>
+                          
+                          
+                          </div>
+                        
+                        <div >   
+                            <select name="designation" id="designation" placeholder="designation"  [(ngModel)]="employeeregistration.designation" #userInputdesignation="ngModel">
+                                <option value="" disabled selected hidde > Select Designation</option>
+                                <option value="employee">Employee</option>
+                                <option value="manager">Manager</option>
+                            </select><br><br>
+                            <div *ngIf="isdesignationInvalid() && userInputdesignation.touched" class="text-danger">
+                                Designation Required!
+                              </div>
+                        </div>
+                        <button class="loginbtn" type="submit"  (click)="Validate()" [disabled]="check()"  >Add</button>
+                    </form>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+</form>
+<!-- </html> -->

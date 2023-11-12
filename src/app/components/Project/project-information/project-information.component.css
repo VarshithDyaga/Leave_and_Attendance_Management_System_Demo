@@ -1,0 +1,20 @@
+.button{
+    background-color: rgb(108, 182, 255);
+    font-size: medium;
+    border-radius: 10px;
+    padding: 5px;
+    width: 20%;
+    border: 1px solid rgba(255,255,255,0.30);
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2);
+    margin-bottom: 5%;
+}
+ 
+.addnew{
+    justify-content: right;
+    align-items: right;
+    display: flex;
+}
+.icon-container
+{
+    margin-right : 20px;
+}

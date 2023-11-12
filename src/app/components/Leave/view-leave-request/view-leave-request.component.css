@@ -1,0 +1,13 @@
+.approve{
+    background-color: dodgerblue;
+    font-size: medium;
+    padding: 5px;
+    border-radius: 5px;
+}
+ 
+.reject{
+    background-color: indianred;
+    font-size: medium;
+    padding: 5px;
+    border-radius: 5px;
+}
